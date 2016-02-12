@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 28, 2015 2:52:47 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.tmp.entities.Student" table="student" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="department" class="com.tmp.entities.Department" fetch="select">
+            <column name="dpt_id" precision="5" scale="0" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" />
+        </property>
+    </class>
+</hibernate-mapping>

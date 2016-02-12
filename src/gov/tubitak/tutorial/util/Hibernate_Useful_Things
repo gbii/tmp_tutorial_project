@@ -1,0 +1,37 @@
+Hibernate Named Query example in class.hbm.xml
+    <query name="findStockByStockCode">
+        <![CDATA[from Stock s where s.stockCode = :stockCode]]>
+    </query>
+    
+Hibernate Named Query example in entity class
+@NamedQueries({
+	@NamedQuery(
+	name = "findStockByStockCode",
+	query = "from Stock s where s.stockCode = :stockCode"
+	)
+})
+
+Query query = session.getNamedQuery("findStockByStockCode")
+.setString("stockCode", "7277");
+
+---------------------------------------------
+
+Hibernate Native Query example in class.hbm.xml
+    <sql-query name="findStockByStockCodeNativeSQL">
+	<return alias="stock" class="com.mkyong.common.Stock"/>
+	<![CDATA[select * from stock s where s.stock_code = :stockCode]]>
+    </sql-query>
+
+Hibernate Native Query example in class.hbm.xml
+@NamedNativeQueries({
+	@NamedNativeQuery(
+	name = "findStockByStockCodeNativeSQL",
+	query = "select * from stock s where s.stock_code = :stockCode",
+        resultClass = Stock.class
+	)
+})    
+ 
+Query query = session.getNamedQuery("findStockByStockCodeNativeSQL")
+.setString("stockCode", "7277");
+
+---------------------------------------------
