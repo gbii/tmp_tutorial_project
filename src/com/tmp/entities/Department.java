@@ -1,4 +1,4 @@
-package com.tmp.entities;
+     package com.tmp.entities;
 // Generated Dec 28, 2015 2:52:47 PM by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
